@@ -1,4 +1,4 @@
-# GitHub Action: Run yarn-audit with reviewdog :dog:
+# GitHub Action: Run "yarn audit" with reviewdog :dog:
 
 [![Test](https://github.com/codeur/action-yarn-audit/workflows/Test/badge.svg)](https://github.com/codeur/action-yarn-audit/actions?query=workflow%3ATest)
 [![reviewdog](https://github.com/codeur/action-yarn-audit/workflows/reviewdog/badge.svg)](https://github.com/codeur/action-yarn-audit/actions?query=workflow%3Areviewdog)
@@ -20,9 +20,7 @@ code review experience.
 
 ### With `github-pr-review`
 
-With `reporter: github-pr-review` a comment is added to the Pull Request Conversation:
-
-![Example comment made by the action, with github-pr-review](/.github/images/example-github-pr-review.png)
+With `reporter: github-pr-review` a comment is added to the Pull Request Conversation.
 
 ## Inputs
 
