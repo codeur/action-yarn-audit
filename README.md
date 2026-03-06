@@ -100,6 +100,14 @@ jobs:
 3. Merge the PR.
 4. The release workflow will automatically bump the version, create a release, and update major/minor tags (e.g. v1).
 
+### Test locally
+
+You can test locally with a command like that:
+
+```sh
+GITHUB_WORKSPACE=$(pwd) INPUT_WORKDIR=test/rdjson_formatter/testdata INPUT_TOOL_NAME="yarn audit" INPUT_LEVEL=error INPUT_FAIL_LEVEL=any INPUT_REPORTER=local GITHUB_ACTION_PATH=$(pwd) ./script.sh
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit)
