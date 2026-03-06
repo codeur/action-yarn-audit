@@ -20,14 +20,13 @@ fi
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-echo "::group:: Running yarn audit with reviewdog 🐶 (fail on ${INPUT_FAIL_LEVEL}) ..."
+echo "::group:: Running yarn audit with reviewdog 🐶..."
 
-yarn audit --json > audit.json 2>&1
-
-# NOTE: we need that to avoid yarn audit exit with non-zero code
+# NOTE: yarn audit exits with non-zero code when vulnerabilities are found,
+# so we suppress its exit code to let reviewdog determine the final result.
 # shellcheck disable=SC2086
-cat audit.json \
-  | ruby ${GITHUB_ACTION_PATH}/rdjson_formatter/rdjson_formatter.rb \
+(yarn audit --json || true) \
+  | ruby "${GITHUB_ACTION_PATH}/rdjson_formatter/rdjson_formatter.rb" \
   | reviewdog -f=rdjson \
       -name="${INPUT_TOOL_NAME}" \
       -reporter="${INPUT_REPORTER}" \
