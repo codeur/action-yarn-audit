@@ -22,8 +22,11 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 echo "::group:: Running yarn audit with reviewdog 🐶 (fail on ${INPUT_FAIL_LEVEL}) ..."
 
+yarn audit --json > audit.json 2>&1
+
+# NOTE: we need that to avoid yarn audit exit with non-zero code
 # shellcheck disable=SC2086
-yarn audit --json \
+cat audit.json \
   | ruby ${GITHUB_ACTION_PATH}/rdjson_formatter/rdjson_formatter.rb \
   | reviewdog -f=rdjson \
       -name="${INPUT_TOOL_NAME}" \
