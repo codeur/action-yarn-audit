@@ -77,13 +77,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 'lts/*'
       - name: Run yarn audit
-        uses: codeur/action-yarn-audit@v1
+        uses: codeur/action-yarn-audit@v0
         with:
           reporter: github-pr-review
 ```
