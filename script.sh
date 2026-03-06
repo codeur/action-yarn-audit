@@ -12,9 +12,8 @@ echo '::group::🐶 Installing reviewdog ... https://github.com/reviewdog/review
 curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/fd59714416d6d9a1c0692d872e38e7f8448df4fc/install.sh | sh -s -- -b "${TEMP_PATH}" "${REVIEWDOG_VERSION}" 2>&1
 echo '::endgroup::'
 
-# Install yarn if not skipped
-if [ "${INPUT_SKIP_INSTALL}" != "true" ]; then
-  echo '::group::📦 Installing yarn ...'
+if [ "${INPUT_SKIP_INSTALL}" = "false" ]; then
+  echo '::group:: Installing yarn ...'
   npm install -g yarn
   echo '::endgroup::'
 fi
@@ -25,7 +24,7 @@ echo '::group:: Running yarn audit with reviewdog 🐶 ...'
 
 # shellcheck disable=SC2086
 yarn audit --json \
-  | ruby "${GITHUB_ACTION_PATH}/rdjson_formatter/rdjson_formatter.rb" yarn.lock \
+  | ruby ${GITHUB_ACTION_PATH}/rdjson_formatter/rdjson_formatter.rb \
   | reviewdog -f=rdjson \
       -name="${INPUT_TOOL_NAME}" \
       -reporter="${INPUT_REPORTER}" \
