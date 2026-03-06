@@ -20,7 +20,7 @@ fi
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-echo '::group:: Running yarn audit with reviewdog 🐶 ...'
+echo "::group:: Running yarn audit with reviewdog 🐶 (fail on ${INPUT_FAIL_LEVEL}) ..."
 
 # shellcheck disable=SC2086
 yarn audit --json \
