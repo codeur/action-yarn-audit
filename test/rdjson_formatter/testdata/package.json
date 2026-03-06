@@ -1,0 +1,9 @@
+{
+  "name": "test-vulnerable-deps",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Test package with known vulnerabilities",
+  "dependencies": {
+    "minimist": "0.0.8"
+  }
+}

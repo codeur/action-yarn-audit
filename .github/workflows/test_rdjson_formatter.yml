@@ -1,0 +1,13 @@
+name: Test rdjson_formatter
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Test rdjson_formatter
+        run: ./test/rdjson_formatter/test.sh
