@@ -6,7 +6,7 @@
   "severity": "ERROR",
   "diagnostics": [
     {
-      "message": "Title: Prototype Pollution in minimist\nSolution: Upgrade to version 0.2.1 or later",
+      "message": "[moderate] Prototype Pollution in minimist\nSolution: Upgrade to version 0.2.1 or later",
       "location": {
         "path": "yarn.lock",
         "range": {
@@ -23,7 +23,7 @@
       }
     },
     {
-      "message": "Title: Prototype Pollution in minimist\nSolution: Upgrade to version 0.2.4 or later",
+      "message": "[critical] Prototype Pollution in minimist\nSolution: Upgrade to version 0.2.4 or later",
       "location": {
         "path": "yarn.lock",
         "range": {

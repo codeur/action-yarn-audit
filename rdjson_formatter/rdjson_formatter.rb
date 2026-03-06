@@ -44,7 +44,7 @@ STDIN.each_line do |line|
 
   # Create message with fix guidance
   patched = advisory['recommendation'] || 'No fix available'
-  message = "Title: #{title}\nSolution: #{patched}"
+  message = "[#{severity}] #{title}\nSolution: #{patched}"
 
   # Find package line in yarn.lock
   # yarn.lock has package entries like: "package-name@^1.0.0:"
