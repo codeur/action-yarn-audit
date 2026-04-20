@@ -66,6 +66,10 @@ Optional. Do not install yarn. If set to `true`, yarn must be available in the e
 
 Optional. The directory from which to look for and run `yarn audit`. Default `.`.
 
+### `yarn_audit_flags`
+
+Optional. Yarn audit flags. (`yarn audit --json <yarn_audit_flags>`).
+
 ## Example usage
 
 ```yaml
@@ -86,6 +90,7 @@ jobs:
         uses: codeur/action-yarn-audit@v0
         with:
           reporter: github-pr-review
+          yarn_audit_flags: --level moderate
 ```
 
 ## Dev
@@ -105,7 +110,7 @@ jobs:
 You can test locally with a command like that:
 
 ```sh
-GITHUB_WORKSPACE=$(pwd) INPUT_WORKDIR=test/rdjson_formatter/testdata INPUT_TOOL_NAME="yarn audit" INPUT_LEVEL=error INPUT_FAIL_LEVEL=any INPUT_REPORTER=local GITHUB_ACTION_PATH=$(pwd) ./script.sh
+GITHUB_WORKSPACE=$(pwd) INPUT_WORKDIR=test/rdjson_formatter/testdata INPUT_TOOL_NAME="yarn audit" INPUT_LEVEL=error INPUT_FAIL_LEVEL=any INPUT_REPORTER=local INPUT_YARN_AUDIT_FLAGS="--level moderate" GITHUB_ACTION_PATH=$(pwd) ./script.sh
 ```
 
 ## License

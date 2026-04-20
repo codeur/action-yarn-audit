@@ -25,7 +25,7 @@ echo "::group:: Running yarn audit with reviewdog 🐶..."
 # NOTE: yarn audit exits with non-zero code when vulnerabilities are found,
 # so we suppress its exit code to let reviewdog determine the final result.
 # shellcheck disable=SC2086
-(yarn audit --json || true) \
+(yarn audit --json ${INPUT_YARN_AUDIT_FLAGS} || true) \
   | ruby "${GITHUB_ACTION_PATH}/rdjson_formatter/rdjson_formatter.rb" \
   | reviewdog -f=rdjson \
       -name="${INPUT_TOOL_NAME}" \
