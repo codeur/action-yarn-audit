@@ -34,7 +34,7 @@ STDIN.each_line do |line|
 
   package_name = advisory['module_name']
   title = advisory['title']
-  cve_id = advisory['cves']&.first || advisory['id']
+  cve_id = (advisory['cves']&.first || advisory['id'])&.to_s
   url = advisory['url']
   severity = advisory['severity'].to_s.downcase
 
