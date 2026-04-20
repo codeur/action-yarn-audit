@@ -8,7 +8,7 @@
     {
       "message": "[moderate] Prototype Pollution in minimist\nSolution: Upgrade to version 0.2.1 or later",
       "location": {
-        "path": "./test/rdjson_formatter/testdata/yarn.lock",
+        "path": "yarn.lock",
         "range": {
           "start": {
             "line": 5,
